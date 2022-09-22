@@ -115,11 +115,11 @@ from .models import Author
 class AuthorCreate(LoginRequiredMixin, CreateView):
     model = Author
     fields = '__all__'
-    initial={'date_of_death':'12/10/2016',}
+    initial = {'date_of_death':'12/10/2016',}
 
 class AuthorUpdate(UpdateView):
     model = Author
-    fields = ['last_name','first_name','date_of_birth','date_of_death']
+    fields = ['last_name', 'first_name', 'date_of_birth', 'date_of_death']
 
 class AuthorDelete(DeleteView):
     model = Author

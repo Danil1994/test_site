@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1> {{ author }}</h1>
+    {% if perms.catalog.can_mark_returned %}
+          <li><a href="{% url 'author_update' author.id %}"> Change author</a> </li>
+          <li><a href="{% url 'author_delete' author.id %}"> Delete author</a> </li>
+
+          {% endif %}
+  <h5> {{ author.date_of_birth}} </h5> <h5> {{ author.date_of_death }} </h5>
+
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Copies</h4>
+
+    {% for book in author.book_set.all %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+      </li>
+      {% endfor %}
+
+  </div>
+
+{% endblock %}
